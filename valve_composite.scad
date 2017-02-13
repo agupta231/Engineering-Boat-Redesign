@@ -72,10 +72,10 @@ union() {
     }
 }
 
-// Creating the ring to
+// Creating the ring to connect the two valves
 %translate([0, 0, valve_height / 2]) {
     difference() {
         cylinder(d=valve_thickness + valve_diameter + ring_thickness, h=ring_height, center=true);
-        cylinder(d=valve_thickness + valve_diameter, h=ring_height - 1, center=true);
+        cylinder(d=valve_thickness + valve_diameter, h=ring_height + 1, center=true);
     }
 }
