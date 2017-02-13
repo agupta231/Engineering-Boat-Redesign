@@ -16,6 +16,8 @@ ball_diameter = 6;
 ball_travel_distance = 1;
 valve_connector_height = 2;
 valve_height = ball_diameter + ball_travel_distance;
+ring_thickness = 2;
+ring_height = 2;
 
 // Valve and straw connector
 %union() {
@@ -67,5 +69,13 @@ union() {
             cylinder(d=valve_diameter, h=1, center=true);
             cylinder(d=straw_diameter + straw_connector_thicc, h=1.1, center=true);
         }
+    }
+}
+
+// Creating the ring to
+%translate([0, 0, valve_height / 2]) {
+    difference() {
+        cylinder(d=valve_thickness + valve_diameter + ring_thickness, h=ring_height, center=true);
+        cylinder(d=valve_thickness + valve_diameter, h=ring_height - 1, center=true);
     }
 }
